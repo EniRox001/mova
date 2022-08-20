@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+bool rememberMe = false;
+
 final padSmall = EdgeInsets.all(8.0.sp);
 final padSemiSmall = EdgeInsets.all(12.0.sp);
 final padMedium = EdgeInsets.all(16.0.sp);
