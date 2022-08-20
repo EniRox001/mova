@@ -22,6 +22,15 @@ const tLoginButtonText = [
 ];
 
 const tLoginButtonPasswordText = 'Sign in with Password';
+const tLoginTextDivider = 'or';
+const tSignUpButtonText = 'Sign up';
+const tSignUpTextDivider = 'or continue with';
+const tSignUpRememberMe = 'Remember me';
 
 const tLoginAltTextOne = 'Don\'t have an account? ';
 const tLoginAltTextTwo = 'Sign up';
+const tSignUpAltTextOne = 'Already have an account? ';
+const tSignUpAltTextTwo = 'Sign in';
+const tSignUpText = 'Create Your Account';
+const tSignUpEmailHintText = 'Email';
+const tSignUpPasswordHintText = 'Password';

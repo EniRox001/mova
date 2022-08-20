@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mova/utils/constants.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mova/utils/text_files.dart';
 import 'package:mova/widgets.dart';
 
@@ -21,19 +20,14 @@ class _LoginSignupState extends State<LoginSignup> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  loginImage,
-                  height: 300.0.h,
-                  width: 300.0.w,
-                ),
-              ],
+            Image.asset(
+              loginImage,
+              height: imageHeightLargest,
+              width: imageWidthLargest,
             ),
             Text(
               tLoginSignupText,
-              style: Theme.of(context).textTheme.headline4,
+              style: kLargeText,
             ),
             for (int i = 0; i < 3; i++)
               WLoginButtonLarge(
@@ -42,7 +36,7 @@ class _LoginSignupState extends State<LoginSignup> {
                 onPressed: () {},
               ),
             const WTextDivider(
-              text: 'or',
+              text: tLoginTextDivider,
             ),
             WElevatedButton(
               text: tLoginButtonPasswordText,

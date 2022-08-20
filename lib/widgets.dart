@@ -204,6 +204,42 @@ class WLoginButtonLarge extends StatelessWidget {
   }
 }
 
+class WLoginButtonSmall extends StatelessWidget {
+  const WLoginButtonSmall({
+    Key? key,
+    required this.logo,
+    required this.onPressed,
+  }) : super(key: key);
+
+  final String logo;
+  final Function() onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+              spaceMedium,
+            ),
+          ),
+          primary: Colors.white,
+          side: const BorderSide(
+            color: Colors.black26,
+          )),
+      onPressed: onPressed,
+      child: Padding(
+        padding: padMedium,
+        child: Image.asset(
+          logo,
+          height: spaceLargest,
+        ),
+      ),
+    );
+  }
+}
+
 class WTextDivider extends StatelessWidget {
   const WTextDivider({
     Key? key,
@@ -265,6 +301,60 @@ class WInlineAltText extends StatelessWidget {
                 style: kloginAltStyle,
                 recognizer: TapGestureRecognizer()..onTap = onPressed)
           ]),
+    );
+  }
+}
+
+class WInputField extends StatelessWidget {
+  const WInputField({
+    Key? key,
+    required this.controller,
+    required this.prefixIcon,
+    required this.hintText,
+    required this.suffixIcon,
+  }) : super(key: key);
+
+  final TextEditingController controller;
+  final IconData prefixIcon;
+  final String hintText;
+  final IconData suffixIcon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Theme(
+      data: ThemeData().copyWith(
+        colorScheme: ThemeData().colorScheme.copyWith(
+              primary: Colors.red,
+            ),
+      ),
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(17.0.sp),
+          ),
+          filled: true,
+          fillColor: const Color(0xFFFAFAFA),
+          prefixIcon: Icon(prefixIcon, size: 24.sp),
+          suffixIcon: suffixIcon == Icons.nat
+              ? const SizedBox()
+              : IconButton(
+                  onPressed: () {},
+                  icon: Icon(suffixIcon, size: 24.sp),
+                ),
+          hintText: hintText,
+          hintStyle: TextStyle(
+            color: Colors.black38,
+            fontSize: 16.0.sp,
+            fontWeight: FontWeight.bold,
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Color(0xFFE21221)),
+            borderRadius: BorderRadius.circular(10.0.sp),
+          ),
+        ),
+      ),
     );
   }
 }
