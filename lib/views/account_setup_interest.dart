@@ -37,12 +37,12 @@ class _InterestState extends State<Interest> {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             SizedBox(
-              height: spaceLargest,
+              height: spaceLarge,
             ),
             Wrap(
               alignment: WrapAlignment.start,
-              runSpacing: spaceMedium,
-              spacing: spaceMedium,
+              runSpacing: spaceSemiSmall,
+              spacing: spaceSemiSmall,
               children: [
                 for (int i = 0; i < tChooseInterest.length; i++)
                   WChooseInterestWidget(
@@ -80,7 +80,7 @@ class _InterestState extends State<Interest> {
                   ),
                 ),
                 SizedBox(
-                  width: spaceMedium,
+                  width: spaceSemiSmall,
                 ),
                 Expanded(
                   child: WElevatedButton(

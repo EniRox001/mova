@@ -72,3 +72,11 @@ final tChosenInterest = [];
 
 const tChooseInterestSkip = 'Skip';
 const tChooseInterestContinue = 'Continue';
+
+const genders = [
+  "Male",
+  "Female",
+  "Rather not say",
+];
+
+String initGender = genders[0];

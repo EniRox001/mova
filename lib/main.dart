@@ -5,6 +5,7 @@ import 'package:mova/views/edit_profile.dart';
 import 'package:mova/views/login.dart';
 import 'package:mova/views/login_signup.dart';
 import 'package:mova/views/onboarding.dart';
+import 'package:mova/views/setup_pin.dart';
 import 'package:mova/views/signup.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
             '/login': (context) => const Login(),
             '/ac_interest': (context) => const Interest(),
             '/edit_profile': (context) => const EditProfile(),
+            '/setup_pin': (context) => SetupPin(),
           },
         );
       },

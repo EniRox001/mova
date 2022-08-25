@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'utils/constants.dart';
@@ -93,7 +94,7 @@ class OnboardingWidget extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
-                  height: spaceLargest,
+                  height: spaceLarge,
                 ),
                 Text(
                   onboardingSubtitle,
@@ -101,11 +102,11 @@ class OnboardingWidget extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
-                  height: spaceLarge,
+                  height: spaceMedium,
                 ),
                 WPageIndicator(controller: controller),
                 SizedBox(
-                  height: spaceLarge,
+                  height: spaceMedium,
                 ),
                 isLastPage
                     ? WElevatedButton(
@@ -182,7 +183,7 @@ class WLoginButtonLarge extends StatelessWidget {
       style: ElevatedButton.styleFrom(
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(spaceLarge),
+            borderRadius: BorderRadius.circular(spaceMedium),
           ),
           primary: whiteBackgroundColor,
           side: const BorderSide(
@@ -199,7 +200,7 @@ class WLoginButtonLarge extends StatelessWidget {
               height: 40.0.h,
             ),
             SizedBox(
-              width: spaceMedium,
+              width: spaceSemiSmall,
             ),
             Text(
               text,
@@ -229,7 +230,7 @@ class WLoginButtonSmall extends StatelessWidget {
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-              spaceMedium,
+              spaceSemiSmall,
             ),
           ),
           primary: Colors.white,
@@ -241,7 +242,7 @@ class WLoginButtonSmall extends StatelessWidget {
         padding: padMedium,
         child: Image.asset(
           logo,
-          height: spaceLargest,
+          height: spaceLarge,
         ),
       ),
     );
@@ -268,11 +269,11 @@ class WTextDivider extends StatelessWidget {
           ),
         ),
         SizedBox(
-          width: spaceLarge,
+          width: spaceMedium,
         ),
         Text(text),
         SizedBox(
-          width: spaceLarge,
+          width: spaceMedium,
         ),
         const Expanded(
           child: Divider(
@@ -344,7 +345,9 @@ class WInputField extends StatelessWidget {
           ),
           filled: true,
           fillColor: const Color(0xFFFAFAFA),
-          prefixIcon: Icon(prefixIcon, size: 24.sp),
+          prefixIcon: Icon(
+            prefixIcon,
+          ),
           suffixIcon: suffixIcon == Icons.nat
               ? const SizedBox()
               : IconButton(
@@ -357,6 +360,125 @@ class WInputField extends StatelessWidget {
             fontSize: 16.0.sp,
             fontWeight: FontWeight.bold,
           ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Color(0xFFE21221)),
+            borderRadius: BorderRadius.circular(10.0.sp),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class WStockInputField extends StatelessWidget {
+  const WStockInputField({
+    Key? key,
+    required this.controller,
+    required this.hintText,
+    required this.suffixIcon,
+  }) : super(key: key);
+
+  final TextEditingController controller;
+  final String hintText;
+  final IconData suffixIcon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Theme(
+      data: ThemeData().copyWith(
+        colorScheme: ThemeData().colorScheme.copyWith(
+              primary: Colors.red,
+            ),
+      ),
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(17.0.sp),
+          ),
+          filled: true,
+          fillColor: const Color(0xFFFAFAFA),
+          suffixIcon: suffixIcon == Icons.nat
+              ? const SizedBox()
+              : IconButton(
+                  onPressed: () {},
+                  icon: Icon(suffixIcon, size: 24.sp),
+                ),
+          contentPadding: padLarge,
+          hintText: hintText,
+          hintStyle: TextStyle(
+            color: Colors.black38,
+            fontSize: 16.0.sp,
+            fontWeight: FontWeight.bold,
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Color(0xFFE21221)),
+            borderRadius: BorderRadius.circular(10.0.sp),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class WPhoneInputField extends StatelessWidget {
+  const WPhoneInputField({
+    Key? key,
+    required this.controller,
+    required this.prefixIcon,
+    required this.hintText,
+    required this.onTap,
+    required this.prefixText,
+  }) : super(key: key);
+
+  final TextEditingController controller;
+  final String prefixIcon;
+  final String hintText;
+  final Function() onTap;
+  final String prefixText;
+
+  @override
+  Widget build(BuildContext context) {
+    return Theme(
+      data: ThemeData().copyWith(
+        colorScheme: ThemeData().colorScheme.copyWith(
+              primary: Colors.red,
+            ),
+      ),
+      child: TextFormField(
+        controller: controller,
+        keyboardType: TextInputType.number,
+        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(17.0.sp),
+          ),
+          filled: true,
+          fillColor: const Color(0xFFFAFAFA),
+          prefixIcon: TextButton(
+            onPressed: onTap,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  prefixIcon,
+                  style: TextStyle(
+                    fontSize: 24.0.sp,
+                  ),
+                ),
+                const Icon(
+                  Icons.arrow_drop_down,
+                  color: Colors.black26,
+                ),
+              ],
+            ),
+          ),
+          contentPadding: padLarge,
+          prefix: Text(prefixText),
+          hintText: hintText,
+          hintStyle: kHintTextStyle,
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Color(0xFFE21221)),
             borderRadius: BorderRadius.circular(10.0.sp),
@@ -397,6 +519,90 @@ class WChooseInterestWidget extends StatelessWidget {
       child: Text(
         text,
         style: textStyle,
+      ),
+    );
+  }
+}
+
+class WDropdownGender extends StatelessWidget {
+  const WDropdownGender({
+    Key? key,
+    required this.onPressed,
+    required this.value,
+    required this.list,
+  }) : super(key: key);
+
+  final String value;
+  final List<String> list;
+  final Function(String?) onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: greyFadedBackgroundColor,
+        borderRadius: BorderRadius.circular(17.0.sp),
+      ),
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: spaceMedium,
+          vertical: spaceSmall,
+        ),
+        child: DropdownButton<String>(
+          value: value,
+          icon: const Icon(Icons.arrow_drop_down),
+          elevation: spaceSmall.toInt(),
+          style: TextStyle(color: blackBackgroundColor),
+          underline: const SizedBox(),
+          onChanged: onPressed,
+          items: list.map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          }).toList(),
+          isExpanded: true,
+        ),
+      ),
+    );
+  }
+}
+
+class WCircleAvatar extends StatelessWidget {
+  const WCircleAvatar({
+    Key? key,
+    required this.imagePath,
+  }) : super(key: key);
+
+  final String imagePath;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: CircleAvatar(
+        radius: imageWidthSmall,
+        backgroundColor: blackFadedBackgroundColor,
+        backgroundImage: AssetImage(
+          imagePath,
+        ),
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.bottomRight,
+              child: GestureDetector(
+                onTap: () {},
+                child: CircleAvatar(
+                  radius: spaceMedium,
+                  backgroundColor: mainbackgroundColor,
+                  child: Icon(
+                    Icons.edit,
+                    color: whiteBackgroundColor,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

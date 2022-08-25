@@ -40,7 +40,9 @@ class _LoginSignupState extends State<LoginSignup> {
             ),
             WElevatedButton(
               text: tLoginButtonPasswordText,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/signup');
+              },
               buttonStyle: kOnboardingButtonStyle,
             ),
             WInlineAltText(
