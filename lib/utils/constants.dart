@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Variables Constants
 
+int selectedButton = 0;
 bool isLastPage = false;
 bool rememberMe = false;
 bool changeInterestColor = false;
@@ -18,7 +19,7 @@ final loginPasswordController = TextEditingController();
 
 Color blackBackgroundColor = Colors.black;
 Color whiteBackgroundColor = Colors.white;
-Color fadedbackgroundColor = const Color(0xFFFAFAFA);
+Color fadedbackgroundColor = const Color(0xFFFCE7E9);
 Color mainbackgroundColor = const Color(0xFFE21221);
 Color mainBackgroundColorFaded = const Color(0xFFFDECEE);
 
@@ -82,8 +83,13 @@ final kloginAltStyle = TextStyle(
   color: mainbackgroundColor,
 );
 
-final kOnboardingbuttonTextStyle = TextStyle(
-  color: whiteBackgroundColor,
+const kOnboardingbuttonTextStyle = TextStyle(
+  color: Colors.white,
+  fontWeight: FontWeight.bold,
+);
+
+final kMainColorStyle = TextStyle(
+  color: mainbackgroundColor,
   fontWeight: FontWeight.bold,
 );
 
@@ -105,7 +111,16 @@ final kSelectedInterestStyle = TextStyle(
 //WidgetStyles Constants
 
 final kOnboardingButtonStyle = ElevatedButton.styleFrom(
+  elevation: 0,
   primary: mainbackgroundColor,
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(200.0.sp),
+  ),
+);
+
+final kInactiveButtonStyle = ElevatedButton.styleFrom(
+  elevation: 0,
+  primary: fadedbackgroundColor,
   shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(200.0.sp),
   ),

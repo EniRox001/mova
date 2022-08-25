@@ -11,10 +11,9 @@ class Interest extends StatefulWidget {
 }
 
 class _InterestState extends State<Interest> {
-  int _selectedButton = 0;
   void setSelectedButton(int index) {
     setState(() {
-      _selectedButton = index;
+      selectedButton = index;
     });
   }
 
@@ -30,6 +29,7 @@ class _InterestState extends State<Interest> {
       body: Padding(
         padding: padLarge,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
@@ -53,12 +53,12 @@ class _InterestState extends State<Interest> {
                           ? tChosenInterest.remove(tChooseInterest[i])
                           : tChosenInterest.add(tChooseInterest[i]);
                     },
-                    buttonColor: _selectedButton == 99
+                    buttonColor: selectedButton == 99
                         ? mainBackgroundColorFaded
                         : tChosenInterest.contains(tChooseInterest[i])
                             ? Colors.red
                             : Colors.white,
-                    textStyle: _selectedButton == 99
+                    textStyle: selectedButton == 99
                         ? kUnselectedInterestStyle
                         : tChosenInterest.contains(tChooseInterest[i])
                             ? kSelectedInterestStyle
@@ -66,6 +66,33 @@ class _InterestState extends State<Interest> {
                   ),
               ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: WElevatedButton(
+                    text: tChooseInterestSkip,
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/edit_profile');
+                    },
+                    buttonStyle: kInactiveButtonStyle,
+                    textStyle: kMainColorStyle,
+                  ),
+                ),
+                SizedBox(
+                  width: spaceMedium,
+                ),
+                Expanded(
+                  child: WElevatedButton(
+                    text: tChooseInterestContinue,
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/edit_profile');
+                    },
+                    buttonStyle: kOnboardingButtonStyle,
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),

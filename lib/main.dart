@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mova/views/account_setup_interest.dart';
+import 'package:mova/views/edit_profile.dart';
 import 'package:mova/views/login.dart';
 import 'package:mova/views/login_signup.dart';
 import 'package:mova/views/onboarding.dart';
@@ -49,7 +50,8 @@ class MyApp extends StatelessWidget {
             '/login_signup': (context) => const LoginSignup(),
             '/signup': (context) => const SignUp(),
             '/login': (context) => const Login(),
-            "/ac_interest": (context) => const Interest(),
+            '/ac_interest': (context) => const Interest(),
+            '/edit_profile': (context) => const EditProfile(),
           },
         );
       },

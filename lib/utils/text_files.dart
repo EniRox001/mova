@@ -69,3 +69,6 @@ const tChooseInterest = [
 ];
 
 final tChosenInterest = [];
+
+const tChooseInterestSkip = 'Skip';
+const tChooseInterestContinue = 'Continue';

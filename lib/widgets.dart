@@ -10,16 +10,20 @@ class WElevatedButton extends StatelessWidget {
     Key? key,
     required this.text,
     required this.onPressed,
+    required this.buttonStyle,
+    this.textStyle = kOnboardingbuttonTextStyle,
   }) : super(key: key);
 
   final String text;
   final Function() onPressed;
+  final ButtonStyle buttonStyle;
+  final TextStyle textStyle;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
         onPressed: onPressed,
-        style: kOnboardingButtonStyle,
+        style: buttonStyle,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -27,7 +31,7 @@ class WElevatedButton extends StatelessWidget {
               padding: EdgeInsets.all(24.0.sp),
               child: Text(
                 text,
-                style: kOnboardingbuttonTextStyle,
+                style: textStyle,
               ),
             ),
           ],
@@ -111,14 +115,18 @@ class OnboardingWidget extends StatelessWidget {
                           prefs.setBool("showHome", true);
                           // ignore: use_build_context_synchronously
                           Navigator.pushNamed(context, '/login_signup');
-                        })
+                        },
+                        buttonStyle: kOnboardingButtonStyle,
+                      )
                     : WElevatedButton(
                         text: onboardingButtonText,
                         onPressed: () {
                           controller.nextPage(
                               duration: const Duration(milliseconds: 500),
                               curve: Curves.easeIn);
-                        })
+                        },
+                        buttonStyle: kOnboardingButtonStyle,
+                      )
               ],
             ),
           ),
@@ -176,7 +184,7 @@ class WLoginButtonLarge extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(spaceLarge),
           ),
-          primary: Colors.white,
+          primary: whiteBackgroundColor,
           side: const BorderSide(
             color: Colors.black26,
           )),

@@ -41,6 +41,7 @@ class _LoginSignupState extends State<LoginSignup> {
             WElevatedButton(
               text: tLoginButtonPasswordText,
               onPressed: () {},
+              buttonStyle: kOnboardingButtonStyle,
             ),
             WInlineAltText(
                 altTextOne: tLoginAltTextOne,

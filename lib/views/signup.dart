@@ -64,6 +64,7 @@ class _SignUpState extends State<SignUp> {
               onPressed: () {
                 Navigator.pushNamed(context, '/ac_interest');
               },
+              buttonStyle: kOnboardingButtonStyle,
             ),
             const WTextDivider(text: tSignUpTextDivider),
             Row(

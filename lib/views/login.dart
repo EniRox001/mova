@@ -64,6 +64,7 @@ class _LoginState extends State<Login> {
               onPressed: () {
                 Navigator.pushNamed(context, '/ac_interest');
               },
+              buttonStyle: kOnboardingButtonStyle,
             ),
             Text(tForgotPassword, style: kForgotPasswordTextStyle),
             const WTextDivider(text: tSignUpTextDivider),
