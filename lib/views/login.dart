@@ -3,14 +3,14 @@ import 'package:mova/utils/constants.dart';
 import 'package:mova/utils/text_files.dart';
 import 'package:mova/widgets.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({Key? key}) : super(key: key);
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<Login> createState() => _LoginState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,9 +26,9 @@ class _SignUpState extends State<SignUp> {
               height: imageHeightLarge,
               width: imageWidthLarge,
             ),
-            Text(tSignUpText, style: kLargeText),
+            Text(tLoginText, style: kLargeText),
             WInputField(
-              controller: signUpEmailController,
+              controller: loginEmailController,
               prefixIcon: Icons.email,
               hintText: emailHintText,
               suffixIcon: Icons.nat,
@@ -60,11 +60,12 @@ class _SignUpState extends State<SignUp> {
               ],
             ),
             WElevatedButton(
-              text: tSignUpButtonTextMain,
+              text: tLoginButtonTextMain,
               onPressed: () {
                 Navigator.pushNamed(context, '/ac_interest');
               },
             ),
+            Text(tForgotPassword, style: kForgotPasswordTextStyle),
             const WTextDivider(text: tSignUpTextDivider),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -75,10 +76,10 @@ class _SignUpState extends State<SignUp> {
               ],
             ),
             WInlineAltText(
-              altTextOne: tSignUpAltTextOne,
-              altTextTwo: tSignUpAltTextTwo,
+              altTextOne: tLoginAltTextOne,
+              altTextTwo: tLoginAltTextTwo,
               onPressed: () {
-                Navigator.pushNamed(context, '/login');
+                Navigator.pop(context);
               },
             )
           ],

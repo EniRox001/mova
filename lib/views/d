@@ -1,0 +1,14 @@
+Center(
+        child: Wrap(children: [
+          for (int i = 0; i < 10; i++)
+            CustomElevatedButton(
+                i,
+                _selectedButton == 0
+                    ? Colors.grey
+                    : _selectedButton == i
+                        ? Colors.red
+                        : Colors.grey, () {
+              setSelectedButton(i);
+            }),
+        ]),
+      ),

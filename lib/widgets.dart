@@ -358,3 +358,38 @@ class WInputField extends StatelessWidget {
     );
   }
 }
+
+class WChooseInterestWidget extends StatelessWidget {
+  const WChooseInterestWidget({
+    Key? key,
+    required this.text,
+    required this.onTap,
+    required this.buttonColor,
+    required this.textStyle,
+  }) : super(key: key);
+
+  final String text;
+  final Function() onTap;
+  final Color buttonColor;
+  final TextStyle textStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        elevation: 0,
+        primary: buttonColor,
+        shape: const StadiumBorder(),
+        side: BorderSide(
+          color: mainbackgroundColor,
+          width: 2.0,
+        ),
+      ),
+      onPressed: onTap,
+      child: Text(
+        text,
+        style: textStyle,
+      ),
+    );
+  }
+}

@@ -23,7 +23,7 @@ const tLoginButtonText = [
 
 const tLoginButtonPasswordText = 'Sign in with Password';
 const tLoginTextDivider = 'or';
-const tSignUpButtonText = 'Sign up';
+const tSignUpButtonTextMain = 'Sign up';
 const tSignUpTextDivider = 'or continue with';
 const tSignUpRememberMe = 'Remember me';
 
@@ -32,5 +32,40 @@ const tLoginAltTextTwo = 'Sign up';
 const tSignUpAltTextOne = 'Already have an account? ';
 const tSignUpAltTextTwo = 'Sign in';
 const tSignUpText = 'Create Your Account';
-const tSignUpEmailHintText = 'Email';
-const tSignUpPasswordHintText = 'Password';
+const emailHintText = 'Email';
+const passwordHintText = 'Password';
+
+const tLoginText = "Login to Your Account";
+const tLoginButtonTextMain = "Sign in";
+
+const tForgotPassword = 'Forgot the password?';
+const tChooseYourInterest = 'Choose Your Interest';
+const tChooseYourInterestText =
+    'Choose your interests and get the best movie recommendations. Don\'t worry, you can always change it later.';
+
+const tChooseInterest = [
+  'Action',
+  'Drama',
+  'Comedy',
+  'Horror',
+  'Adventure',
+  'Thriller',
+  'Romance',
+  'Science',
+  'Music',
+  'Documentary',
+  'Crime',
+  'Fantasy',
+  'Mystery',
+  'Fiction',
+  'Animation',
+  'War',
+  'History',
+  'Television',
+  'Superheroes',
+  'Anime',
+  'Sports',
+  'K-Drama',
+];
+
+final tChosenInterest = [];

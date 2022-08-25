@@ -21,7 +21,7 @@ class _LoginSignupState extends State<LoginSignup> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Image.asset(
-              loginImage,
+              kLoginImage,
               height: imageHeightLargest,
               width: imageWidthLargest,
             ),
