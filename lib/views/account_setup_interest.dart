@@ -27,7 +27,12 @@ class _InterestState extends State<Interest> {
         ),
       ),
       body: Padding(
-        padding: padLarge,
+        padding: EdgeInsets.fromLTRB(
+          spaceMedium,
+          spaceNull,
+          spaceMedium,
+          spaceMedium,
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,34 +42,36 @@ class _InterestState extends State<Interest> {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             SizedBox(
-              height: spaceLarge,
+              height: spaceMedium,
             ),
-            Wrap(
-              alignment: WrapAlignment.start,
-              runSpacing: spaceSemiSmall,
-              spacing: spaceSemiSmall,
-              children: [
-                for (int i = 0; i < tChooseInterest.length; i++)
-                  WChooseInterestWidget(
-                    text: tChooseInterest[i],
-                    onTap: () {
-                      setSelectedButton(i);
-                      tChosenInterest.contains(tChooseInterest[i])
-                          ? tChosenInterest.remove(tChooseInterest[i])
-                          : tChosenInterest.add(tChooseInterest[i]);
-                    },
-                    buttonColor: selectedButton == 99
-                        ? mainBackgroundColorFaded
-                        : tChosenInterest.contains(tChooseInterest[i])
-                            ? Colors.red
-                            : Colors.white,
-                    textStyle: selectedButton == 99
-                        ? kUnselectedInterestStyle
-                        : tChosenInterest.contains(tChooseInterest[i])
-                            ? kSelectedInterestStyle
-                            : kUnselectedInterestStyle,
-                  ),
-              ],
+            Expanded(
+              child: Wrap(
+                alignment: WrapAlignment.start,
+                runSpacing: spaceSemiSmall,
+                spacing: spaceSemiSmall,
+                children: [
+                  for (int i = 0; i < tChooseInterest.length; i++)
+                    WChooseInterestWidget(
+                      text: tChooseInterest[i],
+                      onTap: () {
+                        setSelectedButton(i);
+                        tChosenInterest.contains(tChooseInterest[i])
+                            ? tChosenInterest.remove(tChooseInterest[i])
+                            : tChosenInterest.add(tChooseInterest[i]);
+                      },
+                      buttonColor: selectedButton == 99
+                          ? mainBackgroundColorFaded
+                          : tChosenInterest.contains(tChooseInterest[i])
+                              ? Colors.red
+                              : Colors.white,
+                      textStyle: selectedButton == 99
+                          ? kUnselectedInterestStyle
+                          : tChosenInterest.contains(tChooseInterest[i])
+                              ? kSelectedInterestStyle
+                              : kUnselectedInterestStyle,
+                    ),
+                ],
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

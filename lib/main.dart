@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mova/utils/constants.dart';
 import 'package:mova/views/account_setup_interest.dart';
 import 'package:mova/views/edit_profile.dart';
 import 'package:mova/views/login.dart';
@@ -32,13 +33,14 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: "Mova",
           theme: ThemeData(
-            appBarTheme: const AppBarTheme(
+            appBarTheme: AppBarTheme(
+                toolbarHeight: spaceMassive,
                 backgroundColor: Colors.white,
-                iconTheme: IconThemeData(
+                iconTheme: const IconThemeData(
                   color: Colors.black,
                 ),
                 elevation: 0,
-                toolbarTextStyle: TextStyle(
+                toolbarTextStyle: const TextStyle(
                   color: Colors.black,
                 )),
             brightness: Brightness.light,
@@ -53,7 +55,7 @@ class MyApp extends StatelessWidget {
             '/login': (context) => const Login(),
             '/ac_interest': (context) => const Interest(),
             '/edit_profile': (context) => const EditProfile(),
-            '/setup_pin': (context) => SetupPin(),
+            '/setup_pin': (context) => const SetupPin(),
           },
         );
       },

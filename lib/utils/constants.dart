@@ -42,13 +42,16 @@ final padLarge = EdgeInsets.all(24.0.sp);
 
 //Spacing Constants
 
-final spaceSmall = 8.0.h;
-final spaceSemiSmall = 16.0.h;
-final spaceMedium = 24.0.h;
-final spaceSemiMedium = 32.0.h;
-final spaceLarge = 40.0.h;
-final spaceSemiLarge = 48.0.h;
-final spaceLargest = 56.0.h;
+final spaceNull = 0.0.sp;
+final spaceSmall = 8.0.sp;
+final spaceSemiSmall = 16.0.sp;
+final spaceMedium = 24.0.sp;
+final spaceSemiMedium = 32.0.sp;
+final spaceLarge = 40.0.sp;
+final spaceSemiLarge = 48.0.sp;
+final spaceLargest = 56.0.sp;
+final spaceSemiMassive = 100.0.sp;
+final spaceMassive = 100.0.sp;
 
 //Image Dimension Constants
 
