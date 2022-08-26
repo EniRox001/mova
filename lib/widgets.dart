@@ -5,6 +5,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'utils/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/gestures.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 class WElevatedButton extends StatelessWidget {
   const WElevatedButton({
@@ -185,7 +186,7 @@ class WLoginButtonLarge extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(spaceMedium),
           ),
-          primary: whiteBackgroundColor,
+          primary: LightColorTheme().whiteBackgroundColor,
           side: const BorderSide(
             color: Colors.black26,
           )),
@@ -286,6 +287,39 @@ class WTextDivider extends StatelessWidget {
   }
 }
 
+class WRememberMeWidget extends StatelessWidget {
+  const WRememberMeWidget({
+    Key? key,
+    required this.value,
+    required this.onChanged,
+    required this.text,
+  }) : super(key: key);
+
+  final bool value;
+  final Function(bool?) onChanged;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Checkbox(
+          value: value,
+          onChanged: onChanged,
+          activeColor: LightColorTheme().mainbackgroundColor,
+          shape: kCheckboxShapeStyle,
+          side: kCheckboxSideStyle,
+        ),
+        Text(
+          text,
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
+      ],
+    );
+  }
+}
+
 class WInlineAltText extends StatelessWidget {
   const WInlineAltText({
     Key? key,
@@ -302,14 +336,15 @@ class WInlineAltText extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-          text: altTextOne,
-          style: Theme.of(context).textTheme.bodySmall,
-          children: [
-            TextSpan(
-                text: altTextTwo,
-                style: kloginAltStyle,
-                recognizer: TapGestureRecognizer()..onTap = onPressed)
-          ]),
+        text: altTextOne,
+        style: Theme.of(context).textTheme.bodySmall,
+        children: [
+          TextSpan(
+              text: altTextTwo,
+              style: kloginAltStyle,
+              recognizer: TapGestureRecognizer()..onTap = onPressed)
+        ],
+      ),
     );
   }
 }
@@ -489,6 +524,32 @@ class WPhoneInputField extends StatelessWidget {
   }
 }
 
+class WPinCodeTextField extends StatelessWidget {
+  const WPinCodeTextField({
+    Key? key,
+    required this.onchanged,
+    required this.controller,
+  }) : super(key: key);
+
+  final Function(String?) onchanged;
+  final TextEditingController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return PinCodeTextField(
+      controller: controller,
+      appContext: context,
+      keyboardType: TextInputType.number,
+      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+      length: 4,
+      onChanged: onchanged,
+      enableActiveFill: true,
+      showCursor: false,
+      pinTheme: pinTheme,
+    );
+  }
+}
+
 class WChooseInterestWidget extends StatelessWidget {
   const WChooseInterestWidget({
     Key? key,
@@ -511,7 +572,7 @@ class WChooseInterestWidget extends StatelessWidget {
         primary: buttonColor,
         shape: const StadiumBorder(),
         side: BorderSide(
-          color: mainbackgroundColor,
+          color: LightColorTheme().mainbackgroundColor,
           width: 2.0,
         ),
       ),
@@ -540,7 +601,7 @@ class WDropdownGender extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: greyFadedBackgroundColor,
+        color: LightColorTheme().greyFadedBackgroundColor,
         borderRadius: BorderRadius.circular(17.0.sp),
       ),
       child: Padding(
@@ -552,7 +613,7 @@ class WDropdownGender extends StatelessWidget {
           value: value,
           icon: const Icon(Icons.arrow_drop_down),
           elevation: spaceSmall.toInt(),
-          style: TextStyle(color: blackBackgroundColor),
+          style: TextStyle(color: LightColorTheme().blackBackgroundColor),
           underline: const SizedBox(),
           onChanged: onPressed,
           items: list.map<DropdownMenuItem<String>>((String value) {
@@ -581,7 +642,7 @@ class WCircleAvatar extends StatelessWidget {
     return Center(
       child: CircleAvatar(
         radius: imageWidthSmall,
-        backgroundColor: blackFadedBackgroundColor,
+        backgroundColor: LightColorTheme().blackFadedBackgroundColor,
         backgroundImage: AssetImage(
           imagePath,
         ),
@@ -593,16 +654,75 @@ class WCircleAvatar extends StatelessWidget {
                 onTap: () {},
                 child: CircleAvatar(
                   radius: spaceMedium,
-                  backgroundColor: mainbackgroundColor,
+                  backgroundColor: LightColorTheme().mainbackgroundColor,
                   child: Icon(
                     Icons.edit,
-                    color: whiteBackgroundColor,
+                    color: LightColorTheme().whiteBackgroundColor,
                   ),
                 ),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class WAlertDialogWidget extends StatelessWidget {
+  const WAlertDialogWidget({
+    Key? key,
+    required this.title,
+    required this.text,
+  }) : super(key: key);
+
+  final String title;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(
+            spaceMedium,
+          ),
+        ),
+      ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.asset(
+            congratsPasswordLogo,
+            height: imageHeightLarge,
+            width: imageWidthLarge,
+          ),
+          SizedBox(
+            height: spaceLarge,
+          ),
+          Text(
+            title,
+            style: TextStyle(
+              color: LightColorTheme().mainbackgroundColor,
+              fontSize: spaceSemiMedium,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(
+            height: spaceLarge,
+          ),
+          Text(
+            text,
+            style: Theme.of(context).textTheme.bodyText1,
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(
+            height: spaceLarge,
+          ),
+          CircularProgressIndicator(
+            color: LightColorTheme().mainbackgroundColor,
+          )
+        ],
       ),
     );
   }

@@ -42,16 +42,14 @@ class _SignUpState extends State<SignUp> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Checkbox(
+                WRememberMeWidget(
                   value: rememberMe,
                   onChanged: (newValue) {
                     setState(() {
                       rememberMe = newValue!;
                     });
                   },
-                  activeColor: mainbackgroundColor,
-                  shape: kCheckboxShapeStyle,
-                  side: kCheckboxSideStyle,
+                  text: tSignUpRememberMe,
                 ),
                 Text(
                   tSignUpRememberMe,

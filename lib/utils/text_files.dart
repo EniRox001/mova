@@ -70,13 +70,34 @@ const tChooseInterest = [
 
 final tChosenInterest = [];
 
-const tChooseInterestSkip = 'Skip';
-const tChooseInterestContinue = 'Continue';
+const tSkipText = 'Skip';
+const tContinueText = 'Continue';
 
 const genders = [
   "Male",
   "Female",
   "Rather not say",
 ];
+
+const tCreatePinMainText = 'Create New Pin';
+const tCreatePinText = 'Add a PIN number to make your account more secure';
+
+const tResetPasswordMainText = 'Forgot Password';
+const tResetPasswordText =
+    'Enter your email address we should use to reset your password';
+const tResetPasswordEmailHint = 'Enter email address';
+const tResetPasswordEmailSentText = 'Code has been sent to eni***@gmail.com';
+const tResetPasswordAltTextOne = 'Resend code in ';
+const tResetPasswordAltTextTwo = '55s';
+const tResetPasswordButtonText = 'Verify';
+
+const tNewPasswordMainText = 'Create New Password';
+const tNewPasswordText = 'Create Your New Password';
+const tNewPasswordHintText = 'New Password';
+const tNewPasswordConfirmHintText = 'Confirm Password';
+
+const tNewPasswordCongratsMainText = 'Congratulations!';
+const tNewPasswordCongratsText =
+    'Your account is ready to use. You will be redirected to the Home page in a few seconds';
 
 String initGender = genders[0];

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mova/utils/constants.dart';
+import 'package:mova/utils/text_files.dart';
 import 'package:mova/widgets.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
 
 class SetupPin extends StatelessWidget {
   const SetupPin({Key? key}) : super(key: key);
@@ -10,9 +10,8 @@ class SetupPin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Create New Pin',
-          style: Theme.of(context).textTheme.titleLarge,
+        title: const Text(
+          tCreatePinMainText,
         ),
       ),
       body: Padding(
@@ -21,31 +20,13 @@ class SetupPin extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              'Add a PIN number to make your account more secure',
+              tCreatePinText,
               style: Theme.of(context).textTheme.titleMedium,
               textAlign: TextAlign.center,
             ),
-            PinCodeTextField(
-              appContext: context,
-              length: 4,
-              onChanged: (String value) {},
-              enableActiveFill: true,
-              showCursor: false,
-              pinTheme: PinTheme(
-                activeColor: Colors.transparent,
-                selectedColor: mainbackgroundColor,
-                activeFillColor: greyFadedBackgroundColor,
-                inactiveFillColor: greyFadedBackgroundColor,
-                selectedFillColor: fadedbackgroundColor,
-                inactiveColor: Colors.transparent,
-                shape: PinCodeFieldShape.box,
-                borderRadius: BorderRadius.circular(spaceSmall),
-                fieldHeight: spaceSemiMassive,
-                fieldWidth: spaceSemiMassive,
-              ),
-            ),
+            WPinCodeTextField(onchanged: (value) {}, controller: pinController),
             WElevatedButton(
-              text: 'Continue',
+              text: tContinueText,
               onPressed: () {},
               buttonStyle: kOnboardingButtonStyle,
             )

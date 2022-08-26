@@ -17,9 +17,8 @@ class _EditProfileState extends State<EditProfile> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Fill Your Profile",
-          style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
       body: Padding(
@@ -80,7 +79,7 @@ class _EditProfileState extends State<EditProfile> {
               children: [
                 Expanded(
                   child: WElevatedButton(
-                    text: tChooseInterestSkip,
+                    text: tSkipText,
                     onPressed: () {
                       Navigator.pushNamed(context, '/setup_pin');
                     },
@@ -93,7 +92,7 @@ class _EditProfileState extends State<EditProfile> {
                 ),
                 Expanded(
                   child: WElevatedButton(
-                    text: tChooseInterestContinue,
+                    text: tContinueText,
                     onPressed: () {
                       Navigator.pushNamed(context, '/setup_pin');
                     },

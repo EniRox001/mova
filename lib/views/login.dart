@@ -39,25 +39,14 @@ class _LoginState extends State<Login> {
               hintText: passwordHintText,
               suffixIcon: Icons.visibility,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Checkbox(
-                  value: rememberMe,
-                  onChanged: (newValue) {
-                    setState(() {
-                      rememberMe = newValue!;
-                    });
-                  },
-                  activeColor: mainbackgroundColor,
-                  shape: kCheckboxShapeStyle,
-                  side: kCheckboxSideStyle,
-                ),
-                Text(
-                  tSignUpRememberMe,
-                  style: Theme.of(context).textTheme.titleSmall,
-                ),
-              ],
+            WRememberMeWidget(
+              value: rememberMe,
+              onChanged: (newValue) {
+                setState(() {
+                  rememberMe = newValue!;
+                });
+              },
+              text: tSignUpRememberMe,
             ),
             WElevatedButton(
               text: tLoginButtonTextMain,
@@ -66,7 +55,15 @@ class _LoginState extends State<Login> {
               },
               buttonStyle: kOnboardingButtonStyle,
             ),
-            Text(tForgotPassword, style: kForgotPasswordTextStyle),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/reset_password');
+              },
+              child: Text(
+                tForgotPassword,
+                style: kForgotPasswordTextStyle,
+              ),
+            ),
             const WTextDivider(text: tSignUpTextDivider),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

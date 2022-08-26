@@ -41,7 +41,7 @@ class _LoginSignupState extends State<LoginSignup> {
             WElevatedButton(
               text: tLoginButtonPasswordText,
               onPressed: () {
-                Navigator.pushNamed(context, '/signup');
+                Navigator.pushNamed(context, '/login');
               },
               buttonStyle: kOnboardingButtonStyle,
             ),

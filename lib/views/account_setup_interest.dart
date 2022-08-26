@@ -21,9 +21,8 @@ class _InterestState extends State<Interest> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           tChooseYourInterest,
-          style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
       body: Padding(
@@ -60,7 +59,7 @@ class _InterestState extends State<Interest> {
                             : tChosenInterest.add(tChooseInterest[i]);
                       },
                       buttonColor: selectedButton == 99
-                          ? mainBackgroundColorFaded
+                          ? LightColorTheme().mainBackgroundColorFaded
                           : tChosenInterest.contains(tChooseInterest[i])
                               ? Colors.red
                               : Colors.white,
@@ -78,7 +77,7 @@ class _InterestState extends State<Interest> {
               children: [
                 Expanded(
                   child: WElevatedButton(
-                    text: tChooseInterestSkip,
+                    text: tSkipText,
                     onPressed: () {
                       Navigator.pushNamed(context, '/edit_profile');
                     },
@@ -91,7 +90,7 @@ class _InterestState extends State<Interest> {
                 ),
                 Expanded(
                   child: WElevatedButton(
-                    text: tChooseInterestContinue,
+                    text: tContinueText,
                     onPressed: () {
                       Navigator.pushNamed(context, '/edit_profile');
                     },

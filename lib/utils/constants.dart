@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:country_picker/country_picker.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 // Variables Constants
 
@@ -21,17 +22,22 @@ final fullNameController = TextEditingController();
 final nickNameController = TextEditingController();
 final emailController = TextEditingController();
 final phoneNumberController = TextEditingController();
-final genderController = TextEditingController();
+final pinController = TextEditingController();
+final resetPasswordEmailController = TextEditingController();
+final resetPasswordPinController = TextEditingController();
+final newPasswordController = TextEditingController();
+final confirmNewPasswordController = TextEditingController();
 
 //Color Constants
-
-Color blackBackgroundColor = Colors.black;
-Color blackFadedBackgroundColor = Colors.black12;
-Color greyFadedBackgroundColor = const Color(0xFFFAFAFA);
-Color whiteBackgroundColor = Colors.white;
-Color fadedbackgroundColor = const Color(0xFFFCE7E9);
-Color mainbackgroundColor = const Color(0xFFE21221);
-Color mainBackgroundColorFaded = const Color(0xFFFDECEE);
+class LightColorTheme {
+  Color blackBackgroundColor = Colors.black;
+  Color blackFadedBackgroundColor = Colors.black12;
+  Color greyFadedBackgroundColor = const Color(0xFFFAFAFA);
+  Color whiteBackgroundColor = Colors.white;
+  Color fadedbackgroundColor = const Color(0xFFFCE7E9);
+  Color mainbackgroundColor = const Color(0xFFE21221);
+  Color mainBackgroundColorFaded = const Color(0xFFFDECEE);
+}
 
 //Padding Constants
 
@@ -71,6 +77,9 @@ final imageWidthSmall = 50.0.w;
 const kLoginImage = 'assets/images/login.png';
 const kMainLogo = 'assets/images/main_logo.png';
 const imageStockLogo = 'assets/images/account_profile.png';
+const resetPasswordLogo = 'assets/images/forgot_pasword.png';
+const newPasswordLogo = 'assets/images/new_password.png';
+const congratsPasswordLogo = 'assets/images/congrats.png';
 
 var kOnboardingImage = [
   'assets/images/onboarding_bg_one.jpg',
@@ -86,10 +95,12 @@ const kLoginButtonImages = [
 
 //TextStyle Constants
 
+class TextStyles {}
+
 final kOnboardingHeadingTextStyle = TextStyle(
   fontSize: 35.0.sp,
   fontWeight: FontWeight.w600,
-  color: whiteBackgroundColor,
+  color: LightColorTheme().whiteBackgroundColor,
 );
 
 final kLargeText = TextStyle(
@@ -99,11 +110,11 @@ final kLargeText = TextStyle(
 
 final kOnboardingSubtitleTextStyle = TextStyle(
   fontSize: 20.0.sp,
-  color: whiteBackgroundColor,
+  color: LightColorTheme().whiteBackgroundColor,
 );
 
 final kloginAltStyle = TextStyle(
-  color: mainbackgroundColor,
+  color: LightColorTheme().mainbackgroundColor,
 );
 
 const kOnboardingbuttonTextStyle = TextStyle(
@@ -112,23 +123,23 @@ const kOnboardingbuttonTextStyle = TextStyle(
 );
 
 final kMainColorStyle = TextStyle(
-  color: mainbackgroundColor,
+  color: LightColorTheme().mainbackgroundColor,
   fontWeight: FontWeight.bold,
 );
 
 final kForgotPasswordTextStyle = TextStyle(
-  color: mainbackgroundColor,
+  color: LightColorTheme().mainbackgroundColor,
   fontWeight: FontWeight.bold,
 );
 
 final kUnselectedInterestStyle = TextStyle(
   fontSize: 24.0.sp,
-  color: mainbackgroundColor,
+  color: LightColorTheme().mainbackgroundColor,
 );
 
 final kSelectedInterestStyle = TextStyle(
   fontSize: 24.0.sp,
-  color: whiteBackgroundColor,
+  color: LightColorTheme().whiteBackgroundColor,
 );
 
 final kHintTextStyle = TextStyle(
@@ -141,7 +152,7 @@ final kHintTextStyle = TextStyle(
 
 final kOnboardingButtonStyle = ElevatedButton.styleFrom(
   elevation: 0,
-  primary: mainbackgroundColor,
+  primary: LightColorTheme().mainbackgroundColor,
   shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(200.0.sp),
   ),
@@ -149,7 +160,7 @@ final kOnboardingButtonStyle = ElevatedButton.styleFrom(
 
 final kInactiveButtonStyle = ElevatedButton.styleFrom(
   elevation: 0,
-  primary: fadedbackgroundColor,
+  primary: LightColorTheme().fadedbackgroundColor,
   shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(200.0.sp),
   ),
@@ -159,7 +170,7 @@ final kCheckboxShapeStyle =
     RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0));
 
 final kCheckboxSideStyle = BorderSide(
-  color: mainbackgroundColor,
+  color: LightColorTheme().mainbackgroundColor,
   width: 3.0,
   style: BorderStyle.solid,
 );
@@ -205,4 +216,17 @@ final kCountryListStyle = CountryListThemeData(
       ),
     ),
   ),
+);
+
+final pinTheme = PinTheme(
+  activeColor: Colors.transparent,
+  selectedColor: LightColorTheme().mainbackgroundColor,
+  activeFillColor: LightColorTheme().greyFadedBackgroundColor,
+  inactiveFillColor: LightColorTheme().greyFadedBackgroundColor,
+  selectedFillColor: LightColorTheme().fadedbackgroundColor,
+  inactiveColor: Colors.transparent,
+  shape: PinCodeFieldShape.box,
+  borderRadius: BorderRadius.circular(spaceSmall),
+  fieldHeight: spaceSemiMassive,
+  fieldWidth: spaceSemiMassive,
 );
