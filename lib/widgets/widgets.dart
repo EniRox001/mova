@@ -720,3 +720,148 @@ class WAlertDialogWidget extends StatelessWidget {
     );
   }
 }
+
+class WFeaturedVideo extends StatelessWidget {
+  const WFeaturedVideo({
+    Key? key,
+    required this.onSearch,
+    required this.onNotification,
+    required this.onPressed,
+    required this.image,
+    required this.featuredTitle,
+    required this.featuredCategory,
+    required this.onPlay,
+    required this.onAddList,
+  }) : super(key: key);
+  final Function() onSearch;
+  final Function() onNotification;
+  final Function() onPressed;
+  final String image;
+  final String featuredTitle;
+  final String featuredCategory;
+  final Function() onPlay;
+  final Function() onAddList;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Stack(
+        children: [
+          Image.network(
+            image,
+            height: MediaQuery.of(context).size.height / 2.25,
+            width: MediaQuery.of(context).size.width,
+            fit: BoxFit.cover,
+          ),
+          Padding(
+            padding: padLarge,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Image.asset(
+                  kMainLogo,
+                  scale: 15.0,
+                ),
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: onSearch,
+                      icon: Icon(
+                        Icons.search,
+                        size: spaceLarge,
+                        color: LightColorTheme().whiteBackgroundColor,
+                      ),
+                    ),
+                    SizedBox(
+                      width: spaceSemiSmall,
+                    ),
+                    IconButton(
+                      onPressed: onNotification,
+                      icon: Icon(
+                        Icons.notifications,
+                        size: spaceLarge,
+                        color: LightColorTheme().whiteBackgroundColor,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            bottom: spaceNull,
+            child: Padding(
+              padding: padLarge,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    featuredTitle,
+                    style: kFeaturedTitleStyle,
+                  ),
+                  Text(
+                    featuredCategory,
+                    style: kPlayButtonTextStyle,
+                  ),
+                  Row(
+                    children: [
+                      ElevatedButton(
+                        onPressed: onPlay,
+                        style: ElevatedButton.styleFrom(
+                          primary: LightColorTheme().mainbackgroundColor,
+                          shape: const StadiumBorder(),
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.play_circle,
+                            ),
+                            SizedBox(
+                              width: spaceSmall,
+                            ),
+                            const Text(
+                              featuredVideoPlayText,
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: spaceSmall,
+                      ),
+                      ElevatedButton(
+                        onPressed: onAddList,
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.transparent,
+                          side: BorderSide(
+                            color: LightColorTheme().whiteBackgroundColor,
+                            width: 2.0,
+                          ),
+                          shape: const StadiumBorder(),
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.add,
+                            ),
+                            SizedBox(
+                              width: spaceSmall,
+                            ),
+                            Text(
+                              featuredVideoListText,
+                              style: kPlayButtonTextStyle,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}

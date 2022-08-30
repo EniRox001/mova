@@ -100,4 +100,9 @@ const tNewPasswordCongratsMainText = 'Congratulations!';
 const tNewPasswordCongratsText =
     'Your account is ready to use. You will be redirected to the Home page in a few seconds';
 
+const featuredVideoTextTitle = 'Dr Strange 2';
+const featuredVideoTextCategory = 'Action, Superhero, Science Fiction...';
+const featuredVideoPlayText = 'Play';
+const featuredVideoListText = 'My List';
+
 String initGender = genders[0];
