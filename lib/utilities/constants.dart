@@ -77,7 +77,7 @@ const imageStockLogo = 'assets/images/account_profile.png';
 const resetPasswordLogo = 'assets/images/forgot_pasword.png';
 const newPasswordLogo = 'assets/images/new_password.png';
 const congratsPasswordLogo = 'assets/images/congrats.png';
-const dSImageOne =
+const featuredVideoImageOne =
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ5IuxfEt-WmUIrpJldszdRJFfTubSEeQVMVNuv63Z0PNfvbWV';
 
 var kOnboardingImage = [
@@ -145,6 +145,22 @@ final kHintTextStyle = TextStyle(
   color: Colors.black38,
   fontSize: 16.0.sp,
   fontWeight: FontWeight.bold,
+);
+
+final kPlayButtonTextStyle = TextStyle(
+  color: LightColorTheme().whiteBackgroundColor,
+  fontSize: 16.0.sp,
+);
+
+final kFeaturedTitleStyle = TextStyle(
+  color: LightColorTheme().whiteBackgroundColor,
+  fontSize: 32.0.sp,
+  fontWeight: FontWeight.bold,
+);
+
+final kSeeAllTextStyle = TextStyle(
+  color: LightColorTheme().mainbackgroundColor,
+  fontSize: 16.0.sp,
 );
 
 //WidgetStyles Constants
