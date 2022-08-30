@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:mova/utils/constants.dart';
-import 'package:mova/utils/text_files.dart';
-import 'package:mova/widgets.dart';
-import 'package:country_picker/country_picker.dart';
+import 'package:mova/imports.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({Key? key}) : super(key: key);
@@ -81,7 +77,7 @@ class _EditProfileState extends State<EditProfile> {
                   child: WElevatedButton(
                     text: tSkipText,
                     onPressed: () {
-                      Navigator.pushNamed(context, '/setup_pin');
+                      Get.toNamed('/setup_pin');
                     },
                     buttonStyle: kInactiveButtonStyle,
                     textStyle: kMainColorStyle,
@@ -94,7 +90,7 @@ class _EditProfileState extends State<EditProfile> {
                   child: WElevatedButton(
                     text: tContinueText,
                     onPressed: () {
-                      Navigator.pushNamed(context, '/setup_pin');
+                      Get.toNamed('/setup_pin');
                     },
                     buttonStyle: kOnboardingButtonStyle,
                   ),

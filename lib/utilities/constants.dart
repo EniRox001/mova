@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:country_picker/country_picker.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:mova/imports.dart';
 
 // Variables Constants
 
@@ -80,6 +77,8 @@ const imageStockLogo = 'assets/images/account_profile.png';
 const resetPasswordLogo = 'assets/images/forgot_pasword.png';
 const newPasswordLogo = 'assets/images/new_password.png';
 const congratsPasswordLogo = 'assets/images/congrats.png';
+const dSImageOne =
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ5IuxfEt-WmUIrpJldszdRJFfTubSEeQVMVNuv63Z0PNfvbWV';
 
 var kOnboardingImage = [
   'assets/images/onboarding_bg_one.jpg',

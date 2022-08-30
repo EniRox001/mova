@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:mova/utils/constants.dart';
-import 'package:mova/utils/text_files.dart';
-import 'package:mova/widgets.dart';
+import 'package:mova/imports.dart';
 
 class NewPassword extends StatefulWidget {
   const NewPassword({Key? key}) : super(key: key);
@@ -76,7 +73,7 @@ class _NewPasswordState extends State<NewPassword> {
                 Future.delayed(const Duration(seconds: 5), () {
                   //Close AlertDialog
                   Navigator.pop(context);
-                  Navigator.pushNamed(context, '/home_page');
+                  Get.toNamed('/home_page');
                 });
               },
               buttonStyle: kOnboardingButtonStyle,

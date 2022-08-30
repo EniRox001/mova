@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:mova/utils/constants.dart';
-import 'package:mova/widgets.dart';
-import 'package:mova/utils/text_files.dart';
+import 'package:mova/imports.dart';
 
 class ResetPassword extends StatelessWidget {
   const ResetPassword({Key? key}) : super(key: key);
@@ -36,7 +33,7 @@ class ResetPassword extends StatelessWidget {
             WElevatedButton(
               text: tContinueText,
               onPressed: () {
-                Navigator.pushNamed(context, '/reset_password_code');
+                Get.toNamed('/reset_password_code');
               },
               buttonStyle: kOnboardingButtonStyle,
             )

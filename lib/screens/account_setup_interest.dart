@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:mova/utils/constants.dart';
-import 'package:mova/utils/text_files.dart';
-import 'package:mova/widgets.dart';
+import 'package:mova/imports.dart';
 
 class Interest extends StatefulWidget {
   const Interest({Key? key}) : super(key: key);
@@ -79,7 +76,7 @@ class _InterestState extends State<Interest> {
                   child: WElevatedButton(
                     text: tSkipText,
                     onPressed: () {
-                      Navigator.pushNamed(context, '/edit_profile');
+                      Get.toNamed('/edit_profile');
                     },
                     buttonStyle: kInactiveButtonStyle,
                     textStyle: kMainColorStyle,
@@ -92,7 +89,7 @@ class _InterestState extends State<Interest> {
                   child: WElevatedButton(
                     text: tContinueText,
                     onPressed: () {
-                      Navigator.pushNamed(context, '/edit_profile');
+                      Get.toNamed('/edit_profile');
                     },
                     buttonStyle: kOnboardingButtonStyle,
                   ),

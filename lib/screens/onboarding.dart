@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:mova/utils/constants.dart';
-import 'package:mova/utils/text_files.dart';
-import 'package:mova/widgets.dart';
+import 'package:mova/imports.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({Key? key}) : super(key: key);

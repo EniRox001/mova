@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'utils/constants.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter/gestures.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:mova/imports.dart';
 
 class WElevatedButton extends StatelessWidget {
   const WElevatedButton({
@@ -116,7 +109,7 @@ class OnboardingWidget extends StatelessWidget {
                           final prefs = await SharedPreferences.getInstance();
                           prefs.setBool("showHome", true);
                           // ignore: use_build_context_synchronously
-                          Navigator.pushNamed(context, '/login_signup');
+                          Get.toNamed('/login_signup');
                         },
                         buttonStyle: kOnboardingButtonStyle,
                       )

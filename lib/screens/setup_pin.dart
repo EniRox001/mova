@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:mova/utils/constants.dart';
-import 'package:mova/utils/text_files.dart';
-import 'package:mova/widgets.dart';
+import 'package:mova/imports.dart';
 
 class SetupPin extends StatelessWidget {
   const SetupPin({Key? key}) : super(key: key);
@@ -27,7 +24,9 @@ class SetupPin extends StatelessWidget {
             WPinCodeTextField(onchanged: (value) {}, controller: pinController),
             WElevatedButton(
               text: tContinueText,
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed('/home_page');
+              },
               buttonStyle: kOnboardingButtonStyle,
             )
           ],

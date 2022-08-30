@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:mova/utils/constants.dart';
-import 'package:mova/utils/text_files.dart';
-import 'package:mova/widgets.dart';
+import 'package:mova/imports.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -51,13 +48,13 @@ class _LoginState extends State<Login> {
             WElevatedButton(
               text: tLoginButtonTextMain,
               onPressed: () {
-                Navigator.pushNamed(context, '/ac_interest');
+                Get.toNamed('/ac_interest');
               },
               buttonStyle: kOnboardingButtonStyle,
             ),
             TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/reset_password');
+                Get.toNamed('/reset_password');
               },
               child: Text(
                 tForgotPassword,
@@ -77,7 +74,7 @@ class _LoginState extends State<Login> {
               altTextOne: tLoginAltTextOne,
               altTextTwo: tLoginAltTextTwo,
               onPressed: () {
-                Navigator.pop(context);
+                Get.back();
               },
             )
           ],
