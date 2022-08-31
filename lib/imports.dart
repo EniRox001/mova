@@ -27,9 +27,18 @@ export 'package:get/get.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:flutter/services.dart';
 export 'package:flutter/gestures.dart';
+export 'dart:convert';
 
 //---------------Misc---------------//
 
 export 'package:mova/utilities/constants.dart';
 export 'package:mova/utilities/text_files.dart';
 export 'package:mova/widgets/widgets.dart';
+
+//---------------Models---------------//
+
+export 'package:mova/models/movies_model.dart';
+
+//---------------Providers---------------//
+
+export 'package:mova/providers/movie_providers.dart';

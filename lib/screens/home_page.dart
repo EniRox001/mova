@@ -1,7 +1,17 @@
 import 'package:mova/imports.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    movieFuture = getMovies(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +28,14 @@ class HomePage extends StatelessWidget {
             onPlay: () {},
             onAddList: () {},
           ),
-          Padding(
-            padding: padLarge,
-            child: Column(
-              children: [
-                Row(
+          Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: spaceMedium,
+                  vertical: spaceSmall,
+                ),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -38,14 +51,44 @@ class HomePage extends StatelessWidget {
                     )
                   ],
                 ),
-                Expanded(
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [],
-                  ),
-                )
-              ],
-            ),
+              ),
+              FutureBuilder<List<Movies>>(
+                future: movieFuture,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const CircularProgressIndicator();
+                  } else if (snapshot.hasData) {
+                    final movies = snapshot.data!;
+                    return Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: spaceMedium,
+                      ),
+                      child: SizedBox(
+                        height: 250.0.h,
+                        child: ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: movies.length,
+                          separatorBuilder: (context, index) {
+                            return SizedBox(
+                              width: 10.0.w,
+                            );
+                          },
+                          itemBuilder: (context, index) {
+                            final movie = movies[index];
+                            return Container(
+                              color: Colors.red,
+                              child: Text(movie.videoPlayUrl),
+                            );
+                          },
+                        ),
+                      ),
+                    );
+                  } else {
+                    return const Text('No user data');
+                  }
+                },
+              ),
+            ],
           )
         ],
       ),

@@ -37,8 +37,8 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: Colors.white,
             primaryColor: Colors.lightBlue[800],
           ),
-          initialRoute: showHome ? '/login_signup' : '/',
-          // initialRoute: '/home_page',
+          // initialRoute: showHome ? '/login_signup' : '/',
+          initialRoute: '/home_page',
           getPages: Routes().getpage,
         );
       },
