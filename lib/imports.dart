@@ -14,7 +14,7 @@ export 'package:mova/screens/reset_password.dart';
 export 'package:mova/screens/reset_password_code.dart';
 export 'package:mova/screens/new_password.dart';
 export 'package:mova/screens/home_page.dart';
-export 'package:mova/routing/route.dart';
+export 'package:mova/routes/route.dart';
 
 //---------------Packages---------------//
 

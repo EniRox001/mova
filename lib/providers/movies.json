@@ -2,7 +2,7 @@
     {
         "id": 0,
         "name": "Doctor Strange Multiverse of Madness",
-        "categories": "Actions, SuperHero, Science Fiction",
+        "categories": ["Action", "SuperHero", "Science Fiction"],
         "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ5IuxfEt-WmUIrpJldszdRJFfTubSEeQVMVNuv63Z0PNfvbWV",
         "videoPlayUrl": "https://nairaland.com",
         "ratings": 9.6
@@ -10,16 +10,16 @@
     {
         "id": 1,
         "name": "Avatar The Ways of Water",
-        "categories": "Actions, Science Fiction",
-        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ5IuxfEt-WmUIrpJldszdRJFfTubSEeQVMVNuv63Z0PNfvbWV",
+        "categories": ["Action", "Science Fiction"],
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHzUkcdT4s5nNvks6fLtvCv6fq9CtJLcBaDg&usqp=CAU",
         "videoPlayUrl": "https://nairaland.com",
         "ratings": 9.6
     },
     {
         "id": 2,
         "name": "Lightyear",
-        "categories": "Animation, Science Fiction, Kid",
-        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ5IuxfEt-WmUIrpJldszdRJFfTubSEeQVMVNuv63Z0PNfvbWV",
+        "categories": ["Animation", "Science Fiction", "Children"],
+        "imageUrl": "https://lumiere-a.akamaihd.net/v1/images/p_disney_lightyear_519_c4636841.jpeg",
         "videoPlayUrl": "https://nairaland.com",
         "ratings": 9.6
     }

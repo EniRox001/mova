@@ -60,6 +60,8 @@ final spaceMassive = 100.0.sp;
 
 final imageHeightLargest = 300.0.h;
 final imageWidthLargest = 300.0.w;
+final imageHeightSemiLarge = 250.0.h;
+final imageWidthSemiLarge = 250.0.w;
 final imageHeightLarge = 200.0.h;
 final imageWidthLarge = 200.0.w;
 final imageHeightMedium = 100.0.h;

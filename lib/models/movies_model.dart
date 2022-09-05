@@ -1,7 +1,7 @@
 class Movies {
   final int id;
   final String name;
-  final String categories;
+  final List categories;
   final String imageUrl;
   final String videoPlayUrl;
   final double ratings;

@@ -64,21 +64,54 @@ class _HomePageState extends State<HomePage> {
                         horizontal: spaceMedium,
                       ),
                       child: SizedBox(
-                        height: 250.0.h,
+                        height: imageHeightSemiLarge,
                         child: ListView.separated(
                           scrollDirection: Axis.horizontal,
                           itemCount: movies.length,
                           separatorBuilder: (context, index) {
                             return SizedBox(
-                              width: 10.0.w,
+                              width: spaceSemiSmall,
                             );
                           },
                           itemBuilder: (context, index) {
                             final movie = movies[index];
-                            return Container(
-                              color: Colors.red,
-                              child: Text(movie.videoPlayUrl),
-                            );
+                            return (Stack(
+                              children: [
+                                Container(
+                                  width: 150.0,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(
+                                      spaceSmall,
+                                    ),
+                                    image: DecorationImage(
+                                      image: NetworkImage(
+                                        movie.imageUrl,
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: padSmall,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color:
+                                          LightColorTheme().mainbackgroundColor,
+                                      borderRadius: BorderRadius.circular(
+                                        spaceSmall,
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: padSmall,
+                                      child: Text(
+                                        movie.ratings.toString(),
+                                        style: kOnboardingbuttonTextStyle,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ));
                           },
                         ),
                       ),
